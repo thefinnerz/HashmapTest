@@ -23,7 +23,13 @@ public class Main {
         cities.put("Spain", cities3);
 
         for (String s : cities.keySet()) {
-            Collections.sort(cities.get(s), new KeyCompareByName());
+            Collections.sort(cities.get(s), new ValueCompareByName());
+        }
+
+        Iterator<String> it = cities.keySet().iterator();
+
+        while (it.hasNext()) {
+            System.out.println(it.next());
         }
 
         System.out.println(cities2.get(0).getName());
@@ -38,7 +44,5 @@ public class Main {
                 System.out.println(c.getName());
             }
         }
-
-
     }
 }

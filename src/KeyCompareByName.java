@@ -1,9 +1,8 @@
 import java.util.Comparator;
 
-public class KeyCompareByName implements Comparator<City> {
-
+public class KeyCompareByName implements Comparator<String> {
     @Override
-    public int compare(City city1, City city2) {
-        return city1.getName().compareTo(city2.getName());
+    public int compare(String o1, String o2) {
+        return 0;
     }
 }
