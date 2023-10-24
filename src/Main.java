@@ -3,13 +3,24 @@ import java.util.*;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
-public class Main implements Comparator {
+public class Main {
     public static void main(String[] args) {
-        HashMap<String, ArrayList<String>> cities = new HashMap<String, ArrayList<String>>();
+        HashMap<String, ArrayList<City>> cities = new HashMap<String, ArrayList<City>>();
 
-        cities.put("UK", new ArrayList<>(Arrays.asList("London", "Manchester")));
-        cities.put("France", new ArrayList<>(Arrays.asList("Paris", "Bordeaux")));
-        cities.put("Spain", new ArrayList<>(Arrays.asList("Barcelona", "Madrid")));
+        City london = new City("London");
+        City manchester = new City("Manchester");
+        City paris = new City("Paris");
+        City bordeaux = new City("Bordeaux");
+        City barcelona = new City("Barcelona");
+        City madrid = new City("Madrid");
+
+        ArrayList<City> cities1 = new ArrayList<>(Arrays.asList(london, manchester));
+        ArrayList<City> cities2 =new ArrayList<>(Arrays.asList(paris, bordeaux));
+        ArrayList<City> cities3 =new ArrayList<>(Arrays.asList(barcelona, madrid));
+
+        cities.put("UK", cities1);
+        cities.put("France", cities2);
+        cities.put("Spain", cities3);
 
 
         System.out.println(cities);
@@ -22,7 +33,7 @@ public class Main implements Comparator {
         Iterator<String> cityKeys = cities.keySet().iterator();
 
         while (cityKeys.hasNext()) {
-            System.out.println(cityKeys.next());
+            Collections.sort();
         }
     }
 }
