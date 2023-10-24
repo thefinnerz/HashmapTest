@@ -22,18 +22,23 @@ public class Main {
         cities.put("France", cities2);
         cities.put("Spain", cities3);
 
+        for (String s : cities.keySet()) {
+            Collections.sort(cities.get(s), new KeyCompareByName());
+        }
+
+        System.out.println(cities2.get(0).getName());
+
 
         System.out.println(cities);
         System.out.println(cities.get("Spain"));
 
         for (String country : cities.keySet()) {
-            System.out.println("The key value : " + country + " with these cities: " + cities.get(country));
+            System.out.println("The key value : " + country + " with these cities: ");
+            for (City c : cities.get(country)) {
+                System.out.println(c.getName());
+            }
         }
 
-        Iterator<String> cityKeys = cities.keySet().iterator();
 
-        while (cityKeys.hasNext()) {
-            Collections.sort();
-        }
     }
 }

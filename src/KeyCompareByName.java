@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public abstract class KeyCompareByName implements Comparator<City> {
+public class KeyCompareByName implements Comparator<City> {
 
     @Override
     public int compare(City city1, City city2) {
