@@ -1,4 +1,5 @@
 import javax.swing.text.html.HTMLDocument;
+import java.lang.reflect.Array;
 import java.util.*;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -18,9 +19,17 @@ public class Main {
         ArrayList<City> cities2 =new ArrayList<>(Arrays.asList(paris, bordeaux));
         ArrayList<City> cities3 =new ArrayList<>(Arrays.asList(barcelona, madrid));
 
-        cities.put("UK", cities1);
-        cities.put("France", cities2);
-        cities.put("Spain", cities3);
+        ArrayList<String> countries = new ArrayList<String>();
+
+        countries.add("UK");
+        countries.add("France");
+        countries.add("Spain");
+
+        Collections.sort(countries, new KeyCompareByName());
+
+        cities.put(countries.get(0), cities1);
+        cities.put(countries.get(1), cities2);
+        cities.put(countries.get(2), cities3);
 
         for (String s : cities.keySet()) {
             Collections.sort(cities.get(s), new ValueCompareByName());
@@ -29,7 +38,8 @@ public class Main {
         Iterator<String> it = cities.keySet().iterator();
 
         while (it.hasNext()) {
-            System.out.println(it.next());
+            String key = it.next();
+            PrintByKey(key, cities);
         }
 
         System.out.println(cities2.get(0).getName());
@@ -44,5 +54,9 @@ public class Main {
                 System.out.println(c.getName());
             }
         }
+    }
+
+    public static void PrintByKey(String key, HashMap<String, ArrayList<City>> cities) {
+        System.out.println("Country: " + key + ", Cities: " + cities.get(key).get(0).getName() + ", " + cities.get(key).get(1).getName());
     }
 }
